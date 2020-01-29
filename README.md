@@ -12,7 +12,19 @@ file_management_sys 是一个文件共享系统，包括前端文件展示系统
 # 技术选型
 ## 后端技术
 
-| 技术   | 说明    | 官网    |
-| :---------- | :----------  | :---------- |
-| Spring Boot    | 容器     |  https://spring.io/projects/spring-boot     |
-| MyBatis | ORM 框架 | https://mybatis.org/mybatis-3/zh/index.html|
+| 技术             | 说明          | 官网                                         |
+| :----------     | :----------  | :----------                                  |
+| Spring Boot     | 容器          |  https://spring.io/projects/spring-boot       |
+| MyBatis         | ORM 框架      | https://mybatis.org/mybatis-3/zh/index.html   |
+| MySQL           | 关系型数据库   ｜ https://dev.mysql.com/doc/refman/8.0/en/       |
+| RocketMQ        | 消息队列      | https://rocketmq.apache.org/docs/quick-start/   |
+|  Redis          | 分布式缓存     |  https://redis.io/                              |
+|  Elasticsearch  |  搜索引擎     |  https://www.elastic.co/guide/en/elasticsearch/reference/current/index.html |
+|  LogBack        |   日志        |  http://logback.qos.ch/ |
+|  Lombok	        | 简化对象封装工具| https://github.com/rzwitserloot/lombok  |
+
+## 前端技术
+| 技术             | 说明          | 官网                             |
+| :----------     | :----------  | :----------                      |
+| Vue              |前端框架         | https://vuejs.org/v2/guide/   |
+
