@@ -1,0 +1,2 @@
+# file_management_sys
+file_management_sys 是一个文件共享系统，包括前端文件展示系统和后台管理系统，基于SpringBoot + MyBatis实现。前端文件展示系统包括文件分类和展示界面，文件搜索和文件上传等模块。后台管理系统包含文件管理，权限管理等模块。
