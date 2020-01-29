@@ -20,6 +20,7 @@ file_management_sys 是一个文件共享系统，包括前端文件展示系统
 | RocketMQ        | 消息队列      | https://rocketmq.apache.org/docs/quick-start/   |
 |  Redis          | 分布式缓存     |  https://redis.io/                              |
 |  Elasticsearch  |  搜索引擎     |  https://www.elastic.co/guide/en/elasticsearch/reference/current/index.html |
+| Nginx           | 负载均衡      | https://www.nginx.com/                        |
 |  LogBack        |   日志        |  http://logback.qos.ch/ |
 |  Lombok	        | 简化对象封装工具| https://github.com/rzwitserloot/lombok  |
 
