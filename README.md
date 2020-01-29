@@ -29,3 +29,27 @@ file_management_sys 是一个文件共享系统，包括前端文件展示系统
 | :----------     | :----------  | :----------                      |
 | Vue              |前端框架         | https://vuejs.org/v2/guide/   |
 
+# 环境搭建
+初始搭建均基于阿里云ECS服务器的centos系统。
+## 开发工具
+
+| 工具                   | 说明                    | 官网                                         |
+| :----------           | :----------            | :----------                                  |
+|    IDEA                |     开发IDE            | https://www.jetbrains.com/idea/              |
+| Redis Desktop Manager  | redis客户端连接工具	 |https://redisdesktop.com/download |
+| MySQL workbench        |   MySQL 可视化工具       | https://www.mysql.com/cn/products/workbench/|
+| GitHub                |  版本管理工具            | https://github.com |
+| Maven                  | 项目管理                 |https://maven.apache.org|
+|PostMan                |     接口请求测试           |https://www.getpostman.com/|
+
+## 开发环境
+
+| 工具                   | 版本                    | 官网                                       |
+| :----------           | :----------            | :----------                                  |
+|    JDK                |     1.8               | https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html             |
+| Mysql                 |  5.7.26       	     |https://www.mysql.com/|
+| Redis                 |    4.0.10         | https://redis.io|
+| Nginx                |  待定                |  https://www.nginx.com|
+| Elasticsearch        | 待定                 |https://www.elastic.co/cn/elasticsearch|
+| RocketMQ              |             待定    |  https://rocketmq.apache.org            |
+
