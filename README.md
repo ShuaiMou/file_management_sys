@@ -8,7 +8,7 @@ file_management_sys项目希望完成一个文件共享系统，采用现阶段�
 # 项目介绍
 file_management_sys 是一个文件共享系统，包括前端文件展示系统和后台管理系统，基于SpringBoot + MyBatis实现。前端文件展示系统包括文件分类和展示界面，文件搜索和文件上传等模块。后台管理系统包含文件管理，权限管理等模块。
 ## 项目演示
-![image](https://github.com/ShuaiMou/file_management_sys/blob/master/project%20resource/2020-01-30%2010.56.58.gif)
+![image](https://github.com/ShuaiMou/file_management_sys/blob/master/project%20resource/file_management_sys.gif)
 
 
 # 技术选型
@@ -43,6 +43,9 @@ file_management_sys 是一个文件共享系统，包括前端文件展示系统
 | GitHub                |  版本管理工具            | https://github.com |
 | Maven                  | 项目管理                 |https://maven.apache.org|
 |PostMan                |     接口请求测试           |https://www.getpostman.com/|
+|Gifox                  | gif录制工具                |https://gifox.io/|
+|Axure                  | 原型设计工具	             | https://www.axure.com/|
+
 
 ## 开发环境
 
