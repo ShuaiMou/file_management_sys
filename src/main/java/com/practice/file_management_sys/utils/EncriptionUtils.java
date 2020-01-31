@@ -6,7 +6,7 @@ import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
-public class EncriptionUtil {
+public class EncriptionUtils {
 
     /**
      * 利用MD5进行加密

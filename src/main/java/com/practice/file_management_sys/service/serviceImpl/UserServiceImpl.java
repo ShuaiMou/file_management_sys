@@ -5,7 +5,7 @@ import com.practice.file_management_sys.domain.JsonData;
 import com.practice.file_management_sys.domain.User;
 import com.practice.file_management_sys.mapper.UserMapper;
 import com.practice.file_management_sys.service.UserService;
-import com.practice.file_management_sys.utils.EncriptionUtil;
+import com.practice.file_management_sys.utils.EncriptionUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -25,7 +25,7 @@ public class UserServiceImpl implements UserService {
         }
 
         //check password
-        String psw = EncriptionUtil.EncoderByMD5(password);
+        String psw = EncriptionUtils.EncoderByMD5(password);
         if (!user.getPassword().equals(psw)){
             return JsonData.buildError("wrong password " , -1);
         }
@@ -45,7 +45,7 @@ public class UserServiceImpl implements UserService {
             user = new User();
             user.setGender(gender);
             user.setEmail(email);
-            user.setPassword(EncriptionUtil.EncoderByMD5(password));
+            user.setPassword(EncriptionUtils.EncoderByMD5(password));
             user.setDomain(domain);
 
             //store in database
