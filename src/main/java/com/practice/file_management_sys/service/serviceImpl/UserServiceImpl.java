@@ -6,14 +6,19 @@ import com.practice.file_management_sys.domain.User;
 import com.practice.file_management_sys.mapper.UserMapper;
 import com.practice.file_management_sys.service.UserService;
 import com.practice.file_management_sys.utils.EncriptionUtils;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.practice.file_management_sys.utils.RedisClientUtils;
 import org.springframework.stereotype.Service;
+
+import javax.annotation.Resource;
 
 @Service("userService")
 public class UserServiceImpl implements UserService {
 
-    @Autowired
+    @Resource
     private UserMapper userMapper;
+
+    @Resource
+    private RedisClientUtils redisUtils;
 
     @Override
     public JsonData checkLogin(String email, String password) {
@@ -34,13 +39,15 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public JsonData addUser(String email, String gender, String password, String domain) {
+    public JsonData register(String email, String gender, String password, String domain, String verificationCode){
         User user = userMapper.findByEmail(email);
 
         //check user
         if ( null != user) {//exits
             return JsonData.buildError("the email has registered", -1);
-        }else {
+        }else if(verificationCode == null || !verificationCode.equalsIgnoreCase(redisUtils.get(email))){
+            return JsonData.buildError("验证码不正确，请重试", -1);
+        } else {
             //add user
             user = new User();
             user.setGender(gender);

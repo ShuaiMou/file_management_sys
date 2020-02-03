@@ -5,5 +5,5 @@ import com.practice.file_management_sys.domain.JsonData;
 public interface UserService {
     JsonData checkLogin(String email, String password);
 
-    JsonData addUser(String email, String gender, String password, String domain);
+    JsonData register(String email, String gender, String password, String domain, String verificationCode);
 }

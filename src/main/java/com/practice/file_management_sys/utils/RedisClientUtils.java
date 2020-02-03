@@ -1,27 +1,27 @@
 package com.practice.file_management_sys.utils;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.stereotype.Component;
 
+import javax.annotation.Resource;
 import java.util.concurrent.TimeUnit;
 
 /**
  * redis工具类
 **/
-@Component
+@Component("redisUtils")
 public class RedisClientUtils {
 
-	@Autowired
+	@Resource(name = "stringRedisTemplate")
 	private StringRedisTemplate redisTemplate; //jdbcTemplate
 
 	
 	
 	/**
 	 * 功能描述：设置key-value到redis中
-	 * @param key
-	 * @param value
-	 * @return
+	 * @param key 键
+	 * @param value 值
+	 * @return 成功返回true
 	 */
 	public boolean set(String key ,String value){
 		try{
@@ -46,9 +46,9 @@ public class RedisClientUtils {
 
 	/**
 	 * 功能描述：设置某个key过期时间
-	 * @param key
-	 * @param time
-	 * @return
+	 * @param key 键
+	 * @param time 设置时间
+	 * @return 成功返回真值
 	 */
 	  public boolean expire(String key,long time){
 	        try {
@@ -67,8 +67,8 @@ public class RedisClientUtils {
 
 	  /**
 	   * 功能描述：根据key 获取过期时间
-	   * @param key
-	   * @return
+	   * @param key 键
+	   * @return 该键持续时间
 	   */
 	  public long getExpire(String key){
 	        return redisTemplate.getExpire(key, TimeUnit.SECONDS);
@@ -78,7 +78,7 @@ public class RedisClientUtils {
 	  	/**
 	     * 递增
 	     * @param key 键
-	     * @return
+	     * @return 递增后值
 	     */
 	    public long incr(String key, long delta){
 	        return redisTemplate.opsForValue().increment(key, delta);
@@ -89,7 +89,7 @@ public class RedisClientUtils {
 	     * 递减
 	     * @param key 键
 	     * @param delta 要减少几
-	     * @return
+	     * @return 减少后的值
 	     */
 	    public long decr(String key, long delta){
 	        return redisTemplate.opsForValue().increment(key, -delta);
