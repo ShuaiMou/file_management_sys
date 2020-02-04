@@ -20,6 +20,13 @@ public class UserServiceImpl implements UserService {
     @Resource
     private RedisClientUtils redisUtils;
 
+    /**
+     * 功能：验证用户密码和账号是否匹配
+     *
+     * @param email 客户端传入到邮箱，也就是登录账户
+     * @param password 密码
+     * @return JsonData 登录成功还是失败
+     */
     @Override
     public JsonData checkLogin(String email, String password) {
         User user = userMapper.findByEmail(email);
@@ -38,6 +45,16 @@ public class UserServiceImpl implements UserService {
         return JsonData.buildSuccess(user, 0);
     }
 
+    /**
+     * 功能：完成用户注册，将信息验证并存入数据库
+     *
+     * @param email 邮箱
+     * @param gender 性别
+     * @param password 密码
+     * @param domain 工作领域
+     * @param verificationCode 注册验证码
+     * @return JsonData注册成功或者失败
+     */
     @Override
     public JsonData register(String email, String gender, String password, String domain, String verificationCode){
         User user = userMapper.findByEmail(email);

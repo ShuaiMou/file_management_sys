@@ -10,8 +10,8 @@ import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
-
 import javax.annotation.Resource;
+
 @Service("mailService")
 public class MailServiceImpl implements MailService {
 
@@ -26,6 +26,11 @@ public class MailServiceImpl implements MailService {
     @Value("${spring.mail.username}")
     private String mailFrom;
 
+    /**
+     * 功能：发送验证码到待注册用户，并保存到redis缓存中
+     *
+     * @param to 邮件接收方
+     */
     @Override
     @Async
     public void sendVerificationCodeEmail(String to) {
@@ -44,6 +49,13 @@ public class MailServiceImpl implements MailService {
         redisUtils.expire(to, 60*5);
     }
 
+    /**
+     * 功能：发送欢迎用户邮件
+     *
+     * @param to 注册用户邮箱
+     * @param subject 主题
+     * @param content 邮件内容
+     */
     @Override
     public void sendWelcomeEmail(String to, String subject, String content) {
         SimpleMailMessage message = new SimpleMailMessage();

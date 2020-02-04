@@ -6,7 +6,7 @@ import lombok.Setter;
 import java.io.Serializable;
 
 /**
- * 功能描述：响应结果类
+ * 功能：响应结果类
  *
  */
 @Setter

@@ -29,12 +29,28 @@ public class UserRegisterController {
     @Value("${email.content}")
     private String content;
 
+    /**
+     * 功能：发送验证码到用户邮箱
+     *
+     * @param email 获取传入的邮件地址
+     * @return JsonData 发送完成通知
+     */
     @GetMapping("/send")
     public Object sendVerificationCode(String email){
         mailService.sendVerificationCodeEmail(email);
         return JsonData.buildSuccess("发送成功", 0);
     }
 
+    /**
+     * 功能： 用户校验邮箱验证码和注册
+     *
+     * @param email 邮箱
+     * @param gender 性别
+     * @param password 注册密码密码
+     * @param domain 工作领域
+     * @param verificationCode 验证码
+     * @return JsonData
+     */
     @PostMapping("/register.do")
     public Object register(String email, String gender, String password, String domain, String verificationCode){
         JsonData jsonData = userService.register(email, gender, password, domain,verificationCode);
