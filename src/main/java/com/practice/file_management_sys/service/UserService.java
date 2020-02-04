@@ -6,4 +6,5 @@ public interface UserService {
     JsonData checkLogin(String email, String password);
 
     JsonData register(String email, String gender, String password, String domain, String verificationCode);
+    JsonData updatePersonalInfo(String email, String gender, String domain);
 }
