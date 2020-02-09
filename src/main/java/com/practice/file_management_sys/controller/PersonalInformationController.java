@@ -23,7 +23,7 @@ public class PersonalInformationController {
      * @return jsondata
      */
     @GetMapping("/update")
-    public Object updateInfo(String email, String gender, String domain){
-        return userService.updatePersonalInfo(email, gender, domain);
+    public Object updateInfo(String email, String gender, String domain, String password){
+        return userService.updatePersonalInfo(email, gender, domain, password);
     }
 }

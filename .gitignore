@@ -5,3 +5,4 @@ mvnw.cmd
 /file_management_sys.iml
 target/
 /src/main/resources/trigger.txt
+app_log/

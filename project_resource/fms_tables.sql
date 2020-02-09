@@ -6,7 +6,7 @@ USE `file_management_sys` ;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `file_management_sys`.`fms_user` (
   `email` VARCHAR(45) NOT NULL COMMENT '主键，邮箱',
-  `password` VARCHAR(20) NOT NULL COMMENT '密码',
+  `password` VARCHAR(32) NOT NULL COMMENT '密码',
   `gender` VARCHAR(10) NULL DEFAULT '\"male\"' COMMENT '性别',
   `domain` VARCHAR(40) NOT NULL COMMENT '涉及领域，以逗号分隔',
   `create_time` DATETIME(2) NOT NULL COMMENT '注册日期',

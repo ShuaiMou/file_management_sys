@@ -28,7 +28,7 @@ public enum StateType {
      */
     NOT_ALLOWED(405,"method not allowed"),
     /**
-     * 请求处理发送异常
+     * 请求处理异常
      */
     PROCESSING_EXCEPTION(406,"Handling Exceptions"),
     /**
