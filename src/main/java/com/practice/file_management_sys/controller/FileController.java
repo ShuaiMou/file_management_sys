@@ -35,7 +35,7 @@ public class FileController {
         String uploaderEmail = request.getParameter("uploaderEmail");
         String domain = request.getParameter("domain");
         String fileName = file.getOriginalFilename();
-        int size = (int) (file.getSize()/(1024*1024));
+        int size = (int) (file.getSize()/1024);
 
         //获取文件后缀
         String suffix = fileName.substring(fileName.lastIndexOf("."));

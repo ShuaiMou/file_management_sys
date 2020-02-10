@@ -3,6 +3,7 @@ package com.practice.file_management_sys.mapper;
 import com.practice.file_management_sys.domain.User;
 import org.apache.ibatis.annotations.*;
 
+@Mapper
 public interface UserMapper {
 
     @Insert("insert into fms_user(email, gender, password, domain, username, create_time, update_time) values " +
