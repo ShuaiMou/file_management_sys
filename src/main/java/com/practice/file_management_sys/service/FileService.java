@@ -4,5 +4,7 @@ import com.practice.file_management_sys.domain.JsonData;
 
 public interface FileService {
     JsonData store(String fileName, String uploaderName, String uploaderEmail, int size);
+    JsonData queryUploadHistory(String uploaderEmail);
+    JsonData queryDownloadHistory(String downloaderEmail);
 
 }
