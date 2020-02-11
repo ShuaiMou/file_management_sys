@@ -2,12 +2,14 @@ package com.practice.file_management_sys.controller;
 
 import com.practice.file_management_sys.domain.JsonData;
 import com.practice.file_management_sys.service.UserService;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 @RestController
 @RequestMapping("/user")
@@ -22,7 +24,7 @@ public class UserLoginController {
      * @return JsonData 登录成功或者失败
      */
     @PostMapping("/login.do")
-    public Object register(HttpServletRequest request){
+    public Object login(HttpServletRequest request){
         String email = request.getParameter("email");
         String password = request.getParameter("password");
         JsonData result = userService.checkLogin(email, password);
@@ -30,6 +32,19 @@ public class UserLoginController {
             request.getSession().setAttribute("account", email);
         }
         return result;
+    }
+    
+    /***
+     * @Author Saul
+     * @Description  退出登录，使session失效
+     * @Date 3:20 PM 11/2/20
+     * @param session HttpSession
+     * @return {@link {@link JsonData}}
+     */
+    @GetMapping("/logout.do")
+    public Object logout(HttpSession session){
+        session.invalidate();
+        return JsonData.buildSuccess();
     }
 
 }
