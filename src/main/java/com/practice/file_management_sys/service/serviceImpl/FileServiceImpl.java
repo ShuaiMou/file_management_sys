@@ -14,7 +14,6 @@ import java.util.List;
 
 @Service("fileService")
 public class FileServiceImpl implements FileService{
-
     @Resource
     private FileMapper fileMapper;
 

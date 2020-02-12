@@ -60,6 +60,10 @@ file_management_sys 是一个文件共享系统，包括前端文件展示系统
 | Elasticsearch        | 待定                 |https://www.elastic.co/cn/elasticsearch|
 | RocketMQ              |             待定    |  https://rocketmq.apache.org            |
 
+# 相关学习官方文档
+|技术                         |  说明                       |网址                                                                     |    
+|:---------                      |:----------                         |:---------                                                                  |
+|Spring Data Elasticsearch  | spring data整合 Elasticsearch   | https://github.com/spring-projects/spring-data-elasticsearch/blob/master/README.adoc|
 # 数据库设计
 
 [MySQL数据库生成代码，数据库设计待完善..](https://github.com/ShuaiMou/file_management_sys/blob/master/project_resource/fms_tables.sql)
