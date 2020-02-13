@@ -47,19 +47,20 @@ file_management_sys 是一个文件共享系统，包括前端文件展示系统
 |Axure                  | 原型设计工具	             | https://www.axure.com/|
 |bootschool             | banner 生成工具              |https://www.bootschool.net/ascii|
 |MarkDown               | MarkDown语法说明              |http://www.markdown.cn|
-|RoekerMQ 可视化控制台    |在子项目rocketmq-console里面，打包mvn clean package -Dmaven.test.skip=true|https://github.com/apache/rocketmq-externals|
+|RoeketMQ 可视化控制台    |在子项目rocketmq-console里面，打包mvn clean package -Dmaven.test.skip=true|https://github.com/apache/rocketmq-externals|
 
 
 ## 开发环境
 
 | 工具                   | 版本                    | 官网                                       |
 | :----------           | :----------            | :----------                                  |
+|SpringBoot             |       2.2.4                | https://spring.io/projects/spring-boot   |
 |    JDK                |     1.8               | https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html             |
 | Mysql                 |  5.7.26       	     |https://www.mysql.com/|
 | Redis                 |    4.0.10         | https://redis.io|
 | Nginx                |  待定                |  https://www.nginx.com|
-| Elasticsearch        | 待定                 |https://www.elastic.co/cn/elasticsearch|
-| RocketMQ              |             待定    |  https://rocketmq.apache.org            |
+| Elasticsearch        | 6.8.3                 |https://www.elastic.co/cn/elasticsearch|
+| RocketMQ              |    4.6.0          |  https://rocketmq.apache.org            |
 
 # 相关学习文档
 |技术                         |  说明                       |网址                                                                     |    
