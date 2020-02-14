@@ -18,7 +18,7 @@ import java.io.IOException;
 
 @RestController
 @RequestMapping("/file")
-@PropertySource("classpath:application.properties")
+@PropertySource("classpath:config/application.properties")
 public class FileController {
 
     @Resource
