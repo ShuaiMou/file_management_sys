@@ -3,7 +3,6 @@ package com.practice.file_management_sys.controller;
 import com.practice.file_management_sys.domain.JsonData;
 import com.practice.file_management_sys.service.UserService;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -23,10 +22,11 @@ public class UserLoginController {
      * @param request HttpServletRequest
      * @return JsonData 登录成功或者失败
      */
-    @PostMapping("/login.do")
+    @GetMapping("/login.do")
     public Object login(HttpServletRequest request){
         String email = request.getParameter("email");
         String password = request.getParameter("password");
+        System.out.println(email + " " + password);
         JsonData result = userService.checkLogin(email, password);
         if (result.getCode() == 200){
             request.getSession().setAttribute("account", email);

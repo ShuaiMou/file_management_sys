@@ -2,7 +2,7 @@ package com.practice.file_management_sys.service.serviceImpl;
 
 import com.practice.file_management_sys.service.MailService;
 import com.practice.file_management_sys.utils.GenerateVerificationCodeUtils;
-import com.practice.file_management_sys.utils.RedisClientUtils;
+import com.practice.file_management_sys.utils.RedisUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
@@ -18,7 +18,7 @@ public class MailServiceImpl implements MailService {
     private static final Logger LOGGER = LoggerFactory.getLogger(MailService.class);
 
     @Resource
-    private RedisClientUtils redisUtils;
+    private RedisUtils redisUtils;
 
     @Resource
     private JavaMailSender mailSender;

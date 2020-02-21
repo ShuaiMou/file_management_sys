@@ -7,7 +7,7 @@ import com.practice.file_management_sys.enumClass.StateType;
 import com.practice.file_management_sys.mapper.UserMapper;
 import com.practice.file_management_sys.service.UserService;
 import com.practice.file_management_sys.utils.EncriptionUtils;
-import com.practice.file_management_sys.utils.RedisClientUtils;
+import com.practice.file_management_sys.utils.RedisUtils;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -21,7 +21,7 @@ public class UserServiceImpl implements UserService {
     private UserMapper userMapper;
 
     @Resource
-    private RedisClientUtils redisUtils;
+    private RedisUtils redisUtils;
 
     /**
      * 功能：验证用户密码和账号是否匹配
@@ -65,7 +65,7 @@ public class UserServiceImpl implements UserService {
         //check user
         if ( null != user) {//exits
             return JsonData.buildError(StateType.UNAUTHORIZED.getCode(), "the email has registered");
-        }else if(verificationCode == null || !verificationCode.equalsIgnoreCase(redisUtils.get(email))){
+        }else if(verificationCode == null || !verificationCode.equalsIgnoreCase((String) redisUtils.get(email))){
             return JsonData.buildError(StateType.UNAUTHORIZED.getCode(), "验证码不正确，请重试");
         } else {
             //add user
