@@ -8,7 +8,7 @@ public interface UserMapper {
 
     @Insert("insert into fms_user(email, gender, password, domain, username, create_time, update_time) values " +
             "(#{email}, #{gender}, #{password} ,#{domain}, #{username},#{createTime}, #{updateTime})")
-    void addUser(User user);
+    int addUser(User user);
 
     @Select("select * from fms_user where email = #{email}")
     User findByEmail(@Param("email") String email);

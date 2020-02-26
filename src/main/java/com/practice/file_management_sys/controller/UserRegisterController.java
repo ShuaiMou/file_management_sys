@@ -36,7 +36,7 @@ public class UserRegisterController {
      * @return JsonData 发送完成通知
      */
     @GetMapping("/send")
-    public Object sendVerificationCode(String email){
+    public JsonData sendVerificationCode(String email){
         mailService.sendVerificationCodeEmail(email);
         return JsonData.buildSuccess();
     }
@@ -52,7 +52,7 @@ public class UserRegisterController {
      * @return JsonData
      */
     @PostMapping("/register.do")
-    public Object register(String email, String gender, String password, String domain, String username, String verificationCode){
+    public JsonData register(String email, String gender, String password, String domain, String username, String verificationCode){
         JsonData jsonData = userService.register(email, gender, password, domain,username,verificationCode);
         if (jsonData.getCode() == 0){
             mailService.sendWelcomeEmail(email, subject, content);

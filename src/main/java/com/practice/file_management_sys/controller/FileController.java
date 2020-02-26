@@ -1,6 +1,7 @@
 package com.practice.file_management_sys.controller;
 
 
+import com.practice.file_management_sys.domain.FMSFile;
 import com.practice.file_management_sys.domain.JsonData;
 import com.practice.file_management_sys.enumClass.StateType;
 import com.practice.file_management_sys.service.FileService;
@@ -14,6 +15,7 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import java.io.File;
 import java.io.IOException;
+import java.util.List;
 
 
 @RestController
@@ -56,7 +58,11 @@ public class FileController {
            return JsonData.buildError(StateType.PROCESSING_EXCEPTION.getCode(), "存储异常");
         }
 
-        return fileService.store(finalName.toString(), uploaderName, uploaderEmail, size);
+        FMSFile fmsFile = fileService.store(finalName.toString(), uploaderName, uploaderEmail, size);
+        if (fmsFile == null){
+            return JsonData.buildError(StateType.PROCESSING_EXCEPTION.getCode(), "存储异常");
+        }
+        return JsonData.buildSuccess(fmsFile);
 
     }
 
@@ -68,7 +74,11 @@ public class FileController {
      */
     @GetMapping("/uploadHistory")
     public JsonData uploadHistory(String uploaderEmail){
-        return fileService.queryUploadHistory(uploaderEmail);
+        List<FMSFile> fmsFiles = fileService.queryUploadHistory(uploaderEmail);
+        if (fmsFiles == null){
+            return JsonData.buildError(StateType.PROCESSING_EXCEPTION.getCode(), "查询");
+        }
+        return JsonData.buildSuccess(fmsFiles);
     }
 
     /**
@@ -79,7 +89,11 @@ public class FileController {
      */
     @GetMapping("/downloadHistory")
     public JsonData downloadHistory(String downloaderEmail){
-        return fileService.queryDownloadHistory(downloaderEmail);
+        List<FMSFile> fmsFiles = fileService.queryDownloadHistory(downloaderEmail);
+        if (fmsFiles == null){
+            return JsonData.buildError(StateType.PROCESSING_EXCEPTION.getCode(), "查询");
+        }
+        return JsonData.buildSuccess(fmsFiles);
     }
 
 

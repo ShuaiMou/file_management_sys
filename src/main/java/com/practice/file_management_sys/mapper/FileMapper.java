@@ -9,7 +9,7 @@ import java.util.List;
 public interface FileMapper {
     @Insert("insert into fms_file (file_name, User_email, User_username, create_time, size) values " +
             "(#{fileName}, #{uploaderEmail}, #{uploaderName}, #{createTime}, #{size})")
-    void addFile(FMSFile file);
+    int addFile(FMSFile file);
 
     @Select("select * from fms_file where User_email = #{uploaderEmail}")
     @Results({

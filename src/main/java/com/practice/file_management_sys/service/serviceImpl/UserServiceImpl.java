@@ -78,10 +78,10 @@ public class UserServiceImpl implements UserService {
             user.setCreateTime(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));
             user.setUpdateTime(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));
             //store in database
-            userMapper.addUser(user);
-
-            //set the returned data
-            return JsonData.buildSuccess();
+            if ( 1 == userMapper.addUser(user)) {
+                return JsonData.buildSuccess(user);
+            }
+            return JsonData.buildError(StateType.PROCESSING_EXCEPTION.getCode(), "数据库异常");
         }
     }
 

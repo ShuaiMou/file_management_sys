@@ -3,13 +3,13 @@ package com.practice.file_management_sys.domain;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
 import java.io.Serializable;
+
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class FMSFile implements Serializable{
+public class FMSFile implements Serializable {
 
     private long fileID;
 
