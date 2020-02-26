@@ -31,6 +31,9 @@ file_management_sys 是一个文件共享系统，包括前端文件展示系统
 | 技术             | 说明          | 官网                             |
 | :----------     | :----------  | :----------                      |
 | Vue              |前端框架         | https://vuejs.org/v2/guide/   |
+| Vuex             |前端缓存处理      | https://vuex.vuejs.org        |
+| vue-router       |通过路由构建单页面项目     |https://router.vuejs.org|
+| iView            |组件模版          | https://iviewui.com/ |
 
 # 环境搭建
 初始搭建均基于阿里云ECS服务器的centos系统。
