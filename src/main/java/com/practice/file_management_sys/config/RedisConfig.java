@@ -3,6 +3,8 @@ package com.practice.file_management_sys.config;
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.PropertyAccessor;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.cache.CacheManager;
 import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.cache.interceptor.KeyGenerator;
@@ -29,6 +31,8 @@ import java.util.Map;
 @EnableRedisHttpSession(maxInactiveIntervalInSeconds = 3600)//开启redis集中式session管理，把所有的session都存放到了redis中
 @EnableCaching
 public class RedisConfig {
+    private static final Logger LOGGER = LoggerFactory.getLogger(RedisConfig.class);
+
     /***
      * @Author Saul
      * @Description  TODO: 类名+方法名+参数列表
@@ -59,6 +63,7 @@ public class RedisConfig {
      */
     @Bean
     public CacheManager cacheManager(RedisConnectionFactory redisConnectionFactory){
+        LOGGER.debug("FMS--自定义CacheManager初始化完成");
         return new RedisCacheManager(
                 RedisCacheWriter.nonLockingRedisCacheWriter(redisConnectionFactory),
                 this.getRedisCacheConfigurationWithTtl(6000), //默认策略，未配置的key会使用这个时间

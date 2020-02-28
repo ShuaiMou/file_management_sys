@@ -16,7 +16,6 @@ import java.util.Date;
 
 @Service("userService")
 public class UserServiceImpl implements UserService {
-
     @Resource
     private UserMapper userMapper;
 
@@ -92,6 +91,7 @@ public class UserServiceImpl implements UserService {
             return JsonData.buildSuccess();
         }else {
             return JsonData.buildError(StateType.INTERNAL_SERVER_ERROR.getCode(),StateType.INTERNAL_SERVER_ERROR.value());
+
         }
 
 
