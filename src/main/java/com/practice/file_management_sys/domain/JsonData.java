@@ -1,6 +1,8 @@
 package com.practice.file_management_sys.domain;
 
 import com.practice.file_management_sys.enumClass.StateType;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -16,21 +18,16 @@ import java.io.Serializable;
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
+@ApiModel(value = "返回数据对象", description = "前后端交互的数据格式" )
 public class JsonData implements Serializable {
 
-	private static final long serialVersionUID = 1L;
-
-	/**
-	 * 状态码
-	 */
+	@ApiModelProperty(value = "状态码", notes = "http响应请求状态码")
 	private Integer code;
-	/**
-	 * 数据
-	 */
+
+	@ApiModelProperty(value = "返回的数据", notes = "对返回数据的封装对象")
 	private Object data;
-	/**
-	 * 描述
-	 */
+
+	@ApiModelProperty(value = "状态描述", notes = "对当前返回结果对具体描述")
 	private String msg;
 
     /**

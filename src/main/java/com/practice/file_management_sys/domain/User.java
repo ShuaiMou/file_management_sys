@@ -1,10 +1,12 @@
 package com.practice.file_management_sys.domain;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.practice.file_management_sys.enumClass.Membership;
-import lombok.*;
+import io.swagger.annotations.ApiModel;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 
@@ -12,6 +14,7 @@ import java.io.Serializable;
 @AllArgsConstructor
 @NoArgsConstructor
 @JsonInclude(JsonInclude.Include.NON_NULL)
+@ApiModel(value = "用户对象")
 public class User implements Serializable{
 
     @JsonProperty("account")
@@ -20,7 +23,6 @@ public class User implements Serializable{
 
     private String username;
 
-    @JsonIgnore
     private String password;
 
     private String gender;

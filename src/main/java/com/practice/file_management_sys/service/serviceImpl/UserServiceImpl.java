@@ -51,30 +51,22 @@ public class UserServiceImpl implements UserService {
     /**
      * 功能：完成用户注册，将信息验证并存入数据库
      *
-     * @param email 邮箱
-     * @param gender 性别
-     * @param password 密码
-     * @param domain 工作领域
+     * @param user user对象
      * @param verificationCode 注册验证码
      * @return JsonData注册成功或者失败
      */
     @Override
-    public JsonData register(String email, String gender, String password, String domain,String username, String verificationCode){
-        User user = userMapper.findByEmail(email);
+    public JsonData register(User user, String verificationCode){
+        User tempUser = userMapper.findByEmail(user.getEmail());
 
         //check user
-        if ( null != user) {//exits
+        if ( null != tempUser) {//exits
             return JsonData.buildError(StateType.UNAUTHORIZED.getCode(), "the email has registered");
-        }else if(verificationCode == null || !verificationCode.equalsIgnoreCase((String) redisUtils.get(email))){
+        }else if(verificationCode == null || !verificationCode.equalsIgnoreCase((String) redisUtils.get(user.getEmail()))){
             return JsonData.buildError(StateType.UNAUTHORIZED.getCode(), "验证码不正确，请重试");
         } else {
             //add user
-            user = new User();
-            user.setGender(gender);
-            user.setEmail(email);
-            user.setPassword(EncriptionUtils.EncoderByMD5(password));
-            user.setDomain(domain);
-            user.setUsername(username);
+            user.setPassword(EncriptionUtils.EncoderByMD5(user.getPassword()));
             user.setCreateTime(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));
             user.setUpdateTime(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));
             //store in database
