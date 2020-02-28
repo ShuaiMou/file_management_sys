@@ -30,7 +30,7 @@ public class SessionIntercepter implements HandlerInterceptor{
             PrintWriter writer=null;
             try {
                 writer=response.getWriter();
-                writer.write(JsonData.buildError(StateType.NOT_LOGIN.getCode(), StateType.NOT_LOGIN.value()).toString());
+                writer.write(JsonData.buildError(StateType.UNAUTHORIZED.getCode(), StateType.UNAUTHORIZED.value()).toString());
                 writer.flush();
             }finally {
                 if(writer != null){

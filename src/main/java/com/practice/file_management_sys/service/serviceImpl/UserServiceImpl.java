@@ -73,7 +73,7 @@ public class UserServiceImpl implements UserService {
             if ( 1 == userMapper.addUser(user)) {
                 return JsonData.buildSuccess(user);
             }
-            return JsonData.buildError(StateType.PROCESSING_EXCEPTION.getCode(), "数据库异常");
+            return JsonData.buildError(StateType.INTERNAL_SERVER_ERROR.getCode(), StateType.INTERNAL_SERVER_ERROR.value());
         }
     }
 
@@ -91,7 +91,7 @@ public class UserServiceImpl implements UserService {
         if (n == 1){
             return JsonData.buildSuccess();
         }else {
-            return JsonData.buildError(StateType.PROCESSING_EXCEPTION.getCode(),StateType.PROCESSING_EXCEPTION.value());
+            return JsonData.buildError(StateType.INTERNAL_SERVER_ERROR.getCode(),StateType.INTERNAL_SERVER_ERROR.value());
         }
 
 

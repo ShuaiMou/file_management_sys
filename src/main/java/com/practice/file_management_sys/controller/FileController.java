@@ -55,12 +55,12 @@ public class FileController {
         try {
             file.transferTo(dest);
         } catch (IOException e) {
-           return JsonData.buildError(StateType.PROCESSING_EXCEPTION.getCode(), "存储异常");
+           return JsonData.buildError(StateType.INTERNAL_SERVER_ERROR.getCode(), "存储异常");
         }
 
         FMSFile fmsFile = fileService.store(finalName.toString(), uploaderName, uploaderEmail, size);
         if (fmsFile == null){
-            return JsonData.buildError(StateType.PROCESSING_EXCEPTION.getCode(), "存储异常");
+            return JsonData.buildError(StateType.INTERNAL_SERVER_ERROR.getCode(), "存储异常");
         }
         return JsonData.buildSuccess(fmsFile);
 
@@ -76,7 +76,7 @@ public class FileController {
     public JsonData uploadHistory(String uploaderEmail){
         List<FMSFile> fmsFiles = fileService.queryUploadHistory(uploaderEmail);
         if (fmsFiles == null){
-            return JsonData.buildError(StateType.PROCESSING_EXCEPTION.getCode(), "查询");
+            return JsonData.buildError(StateType.INTERNAL_SERVER_ERROR.getCode(), "查询异常");
         }
         return JsonData.buildSuccess(fmsFiles);
     }
@@ -91,7 +91,7 @@ public class FileController {
     public JsonData downloadHistory(String downloaderEmail){
         List<FMSFile> fmsFiles = fileService.queryDownloadHistory(downloaderEmail);
         if (fmsFiles == null){
-            return JsonData.buildError(StateType.PROCESSING_EXCEPTION.getCode(), "查询");
+            return JsonData.buildError(StateType.INTERNAL_SERVER_ERROR.getCode(), "查询异常");
         }
         return JsonData.buildSuccess(fmsFiles);
     }
