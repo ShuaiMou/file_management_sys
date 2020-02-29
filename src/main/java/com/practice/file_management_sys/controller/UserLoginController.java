@@ -5,9 +5,7 @@ import com.practice.file_management_sys.domain.User;
 import com.practice.file_management_sys.enumClass.StateType;
 import com.practice.file_management_sys.service.UserService;
 import io.swagger.annotations.*;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -20,7 +18,7 @@ public class UserLoginController {
     @Resource
     private UserService userService;
 
-    @GetMapping("/login.do")
+    @PostMapping("/login.do")
     @ApiOperation(value = "登录验证",notes = "传入用户名和密码登录系统")
     @ApiImplicitParams({
             @ApiImplicitParam(name = "email", value = "用户唯一ID", required = true, paramType = "query", dataType = "字符串"),
@@ -41,7 +39,7 @@ public class UserLoginController {
     }
     
 
-    @GetMapping("/logout.do")
+    @DeleteMapping("/logout.do")
     @ApiOperation(value = "退出登录", notes = "退出用户登录，清除session")
     @ApiResponse(code = 204, message = "no content", response = JsonData.class)
     public JsonData logout(HttpSession session){
