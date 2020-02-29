@@ -47,16 +47,6 @@ public enum StateType {
     NOT_FOUND(404,"not found"),
 
     /**
-     * 请求行中指定的请求方法不能被用于请求相应的资源。该响应必须返回一个Allow头信息用以表示出当前资源能够接受的请求方法的列表。
-     */
-    METHOD_NOT_ALLOWED(405,"method not allowed"),
-
-    /**
-     * 请求类型错误
-     */
-    UNSUPPORTED_MEDIA_TYPE(415,"unsupported media type"),
-
-    /**
      * 服务器内部错误，无法完成请求
      */
     INTERNAL_SERVER_ERROR(500,"Internal Server Error");
