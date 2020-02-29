@@ -46,7 +46,7 @@ file_management_sys 是一个文件共享系统，包括前端文件展示系统
 | Nginx           | 负载均衡      | https://www.nginx.com/                        | |
 |  LogBack        |   日志        |  http://logback.qos.ch/manual/index.html | |
 |  Lombok	        | 简化对象封装工具| https://github.com/rzwitserloot/lombok  | |
-｜Swagger         ｜生成前后端api接口文档｜https://github.com/ShuaiMou/spring-boot-module/tree/master/studySpringBootSwagger｜ |
+|Swagger          |生成前后端api接口文档 | https://github.com/ShuaiMou/spring-boot-module/tree/master/studySpringBootSwagger | |
 
 ### 前端技术
 | 技术             | 说明          | 官网                             |
