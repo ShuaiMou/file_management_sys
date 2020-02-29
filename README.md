@@ -35,7 +35,7 @@ file_management_sys 是一个文件共享系统，包括前端文件展示系统
 ## 技术选型
 ### 后端技术
 
-| 技术             | 说明          | 官网 或 了解学习地址                                        | 官网 或 了解学习地址|
+| 技术             | 说明          | 官网                                       | demo地址|
 | :----------     | :----------  | :----------                                  |:---------- |
 | Spring Boot     | 容器          |  https://spring.io/projects/spring-boot       | |
 | MyBatis         | ORM 框架      | https://mybatis.org/mybatis-3/zh/index.html   | https://github.com/ShuaiMou/spring-boot-module/tree/master/studySpringBootMybatis|
@@ -46,7 +46,7 @@ file_management_sys 是一个文件共享系统，包括前端文件展示系统
 | Nginx           | 负载均衡      | https://www.nginx.com/                        | |
 |  LogBack        |   日志        |  http://logback.qos.ch/manual/index.html | |
 |  Lombok	        | 简化对象封装工具| https://github.com/rzwitserloot/lombok  | |
-|Swagger          |生成前后端api接口文档 | https://github.com/ShuaiMou/spring-boot-module/tree/master/studySpringBootSwagger | |
+|Swagger          |生成前后端api接口文档 | https://swagger.io/specification/v2/ | https://github.com/ShuaiMou/spring-boot-module/tree/master/studySpringBootSwagger|
 
 ### 前端技术
 | 技术             | 说明          | 官网                             |
