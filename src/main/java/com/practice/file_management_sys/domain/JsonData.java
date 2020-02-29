@@ -39,6 +39,14 @@ public class JsonData implements Serializable {
 		return new JsonData(StateType.OK.getCode(), null, StateType.OK.value());
 	}
 
+	public static JsonData buildSuccess(int code, Object data, String msg) {
+		return new JsonData(code, data, msg);
+	}
+
+	public static JsonData buildSuccess(int code, String msg) {
+		return buildSuccess(code, null, msg);
+	}
+
     /**
      * 成功，传入数据
      *
