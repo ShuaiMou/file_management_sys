@@ -79,16 +79,14 @@ public class UserServiceImpl implements UserService {
     /**
      * 功能：更新用户个人信息
      *
-     * @param email 邮箱
-     * @param gender 性别
-     * @param domain 工作领域
+     * @param user 用户对象
      * @return JsonData
      */
     @Override
-    public JsonData updatePersonalInfo(String email, String gender, String domain, String password) {
-        int n = userMapper.updateInformation(email, gender, domain, password);
+    public JsonData updatePersonalInfo(User user) {
+        int n = userMapper.updateInformation(user);
         if (n == 1){
-            return JsonData.buildSuccess();
+            return JsonData.buildSuccess(userMapper.findByEmail(user.getEmail()));
         }else {
             return JsonData.buildError(StateType.INTERNAL_SERVER_ERROR.getCode(),StateType.INTERNAL_SERVER_ERROR.value());
 

@@ -15,7 +15,6 @@ public interface UserMapper {
 
 
     @Update("update fms_user set domain = #{domain}, gender=#{gender}, password=#{password} where email=#{email}")
-    int updateInformation(@Param("email") String email, @Param("gender") String gender,
-                          @Param("domain") String domain, @Param("password") String password);
+    int updateInformation(User user);
 
 }

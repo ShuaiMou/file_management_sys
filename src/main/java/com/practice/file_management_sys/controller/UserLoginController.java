@@ -1,7 +1,10 @@
 package com.practice.file_management_sys.controller;
 
 import com.practice.file_management_sys.domain.JsonData;
+import com.practice.file_management_sys.domain.User;
+import com.practice.file_management_sys.enumClass.StateType;
 import com.practice.file_management_sys.service.UserService;
+import io.swagger.annotations.*;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -12,22 +15,24 @@ import javax.servlet.http.HttpSession;
 
 @RestController
 @RequestMapping("/user")
-
+@Api(tags = "用户管理")
 public class UserLoginController {
     @Resource
     private UserService userService;
 
-    /**
-     * 功能：登录验证
-     *
-     * @param request HttpServletRequest
-     * @return JsonData 登录成功或者失败
-     */
     @GetMapping("/login.do")
-    public Object login(HttpServletRequest request){
+    @ApiOperation(value = "登录验证",notes = "传入用户名和密码登录系统")
+    @ApiImplicitParams({
+            @ApiImplicitParam(name = "email", value = "用户唯一ID", required = true, paramType = "query", dataType = "字符串"),
+            @ApiImplicitParam(name = "password", value = "用户登录密码", required = true, paramType = "query", dataType = "字符串"),
+    })
+    @ApiResponses({
+            @ApiResponse(code = 200, message = "ok", response = User.class),
+            @ApiResponse(code = 401, message = "用户名与密码不一致或用户不存在",response = JsonData.class)
+    })
+    public JsonData login(HttpServletRequest request){
         String email = request.getParameter("email");
         String password = request.getParameter("password");
-        System.out.println(email + " " + password);
         JsonData result = userService.checkLogin(email, password);
         if (result.getCode() == 200){
             request.getSession().setAttribute("account", email);
@@ -35,17 +40,13 @@ public class UserLoginController {
         return result;
     }
     
-    /***
-     * @Author Saul
-     * @Description  退出登录，使session失效
-     * @Date 3:20 PM 11/2/20
-     * @param session HttpSession
-     * @return {@link {@link JsonData}}
-     */
+
     @GetMapping("/logout.do")
-    public Object logout(HttpSession session){
+    @ApiOperation(value = "退出登录", notes = "退出用户登录，清除session")
+    @ApiResponse(code = 204, message = "no content", response = JsonData.class)
+    public JsonData logout(HttpSession session){
         session.invalidate();
-        return JsonData.buildSuccess();
+        return JsonData.buildSuccess(StateType.NO_CONTENT.getCode(),StateType.NO_CONTENT.value());
     }
 
 }

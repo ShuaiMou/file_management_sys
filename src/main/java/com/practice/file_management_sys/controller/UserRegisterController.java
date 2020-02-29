@@ -2,6 +2,7 @@ package com.practice.file_management_sys.controller;
 
 import com.practice.file_management_sys.domain.JsonData;
 import com.practice.file_management_sys.domain.User;
+import com.practice.file_management_sys.enumClass.StateType;
 import com.practice.file_management_sys.service.MailService;
 import com.practice.file_management_sys.service.UserService;
 import io.swagger.annotations.*;
@@ -32,10 +33,10 @@ public class UserRegisterController {
     @GetMapping("/send")
     @ApiOperation(value = "发送注册验证码", notes = "异步邮件任务发送验证码")
     @ApiImplicitParam(name = "email", value = "用户传入的合法邮箱地址", required = true,paramType = "query",dataType = "字符串")
-    @ApiResponse(code = 200, message = "邮件发送成功",response = JsonData.class)
+    @ApiResponse(code = 202, message = "邮件发送成功",response = JsonData.class)
     public JsonData sendVerificationCode(String email){
         mailService.sendVerificationCodeEmail(email);
-        return JsonData.buildSuccess("已经发送");
+        return JsonData.buildSuccess(StateType.ACCEPTED.getCode(), StateType.ACCEPTED.value());
     }
 
     @PostMapping("/register.do")
@@ -45,11 +46,10 @@ public class UserRegisterController {
             @ApiImplicitParam(name = "verificationCode", value = "邮箱发送的验证码", required = true, paramType = "query",dataType = "字符串")
     })
     @ApiResponses({
-            @ApiResponse(code = 200, message = "ok", response = JsonData.class),
-            @ApiResponse(code = 406, message = "数据库异常", response = JsonData.class)
+            @ApiResponse(code = 200, message = "ok", response = User.class),
+            @ApiResponse(code = 500, message = "服务器内部错误", response = JsonData.class)
     })
     public JsonData register(@RequestBody User user, String verificationCode){
-        System.out.println(user + verificationCode);
         JsonData jsonData = userService.register(user,verificationCode);
         if (jsonData.getCode() == 0){
             mailService.sendWelcomeEmail(user.getEmail(), subject, content);
