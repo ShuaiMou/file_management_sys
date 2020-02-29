@@ -15,7 +15,7 @@ file_management_sys项目希望完成一个文件共享系统，采用现阶段�
   - [环境搭建](#环境搭建)
     - [开发工具](#开发工具)
     - [开发环境](#开发环境)
-    - [环境搭建](#环境搭建)
+    - [搭建具体环境](#搭建具体环境)
   - [相关学习文档](#相关学习文档)
   - [数据库设计](#数据库设计)
   - [前后端接口文档](#前后端接口文档)
@@ -86,7 +86,7 @@ file_management_sys 是一个文件共享系统，包括前端文件展示系统
 | Elasticsearch        | 6.8.3                 |https://www.elastic.co/cn/elasticsearch|
 | RocketMQ              |    4.6.0          |  https://rocketmq.apache.org            |
 
-### 环境搭建
+### 搭建具体环境
  1.安装 MySQL 5.7.26
  2.安装 Redis 4.0.10
  3.安装 RocketMQ 4.6.0  
