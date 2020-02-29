@@ -1,11 +1,18 @@
 # file_management_sys
 -------------------------
+## 目录
+  - [前言](#前言)
+  - [项目介绍](#项目介绍)
+  - [项目演示](#项目演示)
+  - [技术选型](#技术选型)
+  - [环境搭建](#环境搭建)
+  - [相关学习文档](#相关学习文档)
+  - [数据库设计](#数据库设计)
+  
+## 前言
+file_management_sys项目希望完成一个文件共享系统，采用现阶段公司常用技术来实现，总的目的是用来熟悉这些技术。
 
-
-# 前言
-file_management_sys项目希望完成一个文件共享系统，采用现阶段流行技术来实现，总的目的是用来熟悉这些技术。
-
-# 项目介绍
+## 项目介绍
 file_management_sys 是一个文件共享系统，包括前端文件展示系统和后台管理系统，基于SpringBoot + MyBatis实现。前端文件展示系统包括文件分类和展示界面，文件搜索和文件上传等模块。后台管理系统包含文件管理，权限管理等模块。
 ## 项目演示
 ### 用户端演示
@@ -15,8 +22,8 @@ file_management_sys 是一个文件共享系统，包括前端文件展示系统
 ![image](https://github.com/ShuaiMou/file_management_sys/blob/master/project_resource/admin.gif)
 
 
-# 技术选型
-## 后端技术
+## 技术选型
+### 后端技术
 
 | 技术             | 说明          | 官网                                         |
 | :----------     | :----------  | :----------                                  |
@@ -30,7 +37,7 @@ file_management_sys 是一个文件共享系统，包括前端文件展示系统
 |  LogBack        |   日志        |  http://logback.qos.ch/manual/index.html |
 |  Lombok	        | 简化对象封装工具| https://github.com/rzwitserloot/lombok  |
 
-## 前端技术
+### 前端技术
 | 技术             | 说明          | 官网                             |
 | :----------     | :----------  | :----------                      |
 | Vue              |前端框架         | https://vuejs.org/v2/guide/   |
@@ -38,9 +45,9 @@ file_management_sys 是一个文件共享系统，包括前端文件展示系统
 | vue-router       |通过路由构建单页面项目     |https://router.vuejs.org|
 | iView            |组件模版          | https://iviewui.com/ |
 
-# 环境搭建
+## 环境搭建
 初始搭建均基于阿里云ECS服务器的centos系统。
-## 开发工具
+### 开发工具
 
 | 工具                   | 说明                    | 官网                                         |
 | :----------           | :----------            | :----------                                  |
@@ -57,7 +64,7 @@ file_management_sys 是一个文件共享系统，包括前端文件展示系统
 |RoeketMQ 可视化控制台    |在子项目rocketmq-console里面，打包mvn clean package -Dmaven.test.skip=true|https://github.com/apache/rocketmq-externals|
 
 
-## 开发环境
+### 开发环境
 
 | 工具                   | 版本                    | 官网                                       |
 | :----------           | :----------            | :----------                                  |
@@ -69,12 +76,12 @@ file_management_sys 是一个文件共享系统，包括前端文件展示系统
 | Elasticsearch        | 6.8.3                 |https://www.elastic.co/cn/elasticsearch|
 | RocketMQ              |    4.6.0          |  https://rocketmq.apache.org            |
 
-# 相关学习文档
+## 相关学习文档
 |技术                         |  说明                       |网址                                                                     |    
 |:---------                      |:----------                         |:---------                                                                  |
 |Spring Data Elasticsearch  | spring data整合 Elasticsearch   | https://github.com/spring-projects/spring-data-elasticsearch/blob/master/README.adoc|
 |RocketMQ                   | 阿里中间件团队博客                 |http://jm.taobao.org/2017/01/12/rocketmq-quick-start-in-10-minutes/|
-# 数据库设计
+## 数据库设计
 
 [MySQL数据库生成代码，数据库设计待完善..](https://github.com/ShuaiMou/file_management_sys/blob/master/project_resource/fms_tables.sql)
 
