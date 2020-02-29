@@ -35,17 +35,18 @@ file_management_sys 是一个文件共享系统，包括前端文件展示系统
 ## 技术选型
 ### 后端技术
 
-| 技术             | 说明          | 官网                                         |
-| :----------     | :----------  | :----------                                  |
-| Spring Boot     | 容器          |  https://spring.io/projects/spring-boot       |
-| MyBatis         | ORM 框架      | https://mybatis.org/mybatis-3/zh/index.html   |
-| MySQL           | 关系型数据库   | https://dev.mysql.com/doc/refman/8.0/en/       |
-| RocketMQ        | 消息队列      | https://rocketmq.apache.org/docs/quick-start/   |
-|  Redis          | 分布式缓存     |  https://redis.io/                              |
-|  Elasticsearch  |  搜索引擎     |  https://www.elastic.co/guide/en/elasticsearch/reference/current/index.html |
-| Nginx           | 负载均衡      | https://www.nginx.com/                        |
-|  LogBack        |   日志        |  http://logback.qos.ch/manual/index.html |
-|  Lombok	        | 简化对象封装工具| https://github.com/rzwitserloot/lombok  |
+| 技术             | 说明          | 官网 或 了解学习地址                                        | 官网 或 了解学习地址|
+| :----------     | :----------  | :----------                                  | |
+| Spring Boot     | 容器          |  https://spring.io/projects/spring-boot       | |
+| MyBatis         | ORM 框架      | https://mybatis.org/mybatis-3/zh/index.html   | https://github.com/ShuaiMou/spring-boot-module/tree/master/studySpringBootMybatis|
+| MySQL           | 关系型数据库   | https://dev.mysql.com/doc/refman/8.0/en/       | |
+| RocketMQ        | 消息队列      | https://rocketmq.apache.org/docs/quick-start/   | |
+|  Redis          | 分布式缓存     |  https://redis.io/                              | https://github.com/ShuaiMou/spring-boot-module/tree/master/studySpringBootRedis|
+|  Elasticsearch  |  搜索引擎     |  https://www.elastic.co/guide/en/elasticsearch/reference/current/index.html | |
+| Nginx           | 负载均衡      | https://www.nginx.com/                        | |
+|  LogBack        |   日志        |  http://logback.qos.ch/manual/index.html | |
+|  Lombok	        | 简化对象封装工具| https://github.com/rzwitserloot/lombok  | |
+｜Swagger         ｜生成前后端api接口文档｜https://github.com/ShuaiMou/spring-boot-module/tree/master/studySpringBootSwagger｜ |
 
 ### 前端技术
 | 技术             | 说明          | 官网                             |
@@ -87,9 +88,9 @@ file_management_sys 是一个文件共享系统，包括前端文件展示系统
 | RocketMQ              |    4.6.0          |  https://rocketmq.apache.org            |
 
 ### 搭建具体环境
- 1.安装 MySQL 5.7.26
- 2.安装 Redis 4.0.10
- 3.安装 RocketMQ 4.6.0  
+ - 1.安装 MySQL 5.7.26
+ - 2.安装 Redis 4.0.10
+ - 3.安装 RocketMQ 4.6.0  
 
 ## 相关学习文档
 |技术                         |  说明                       |网址                                                                     |    
