@@ -21,13 +21,13 @@ import java.io.Serializable;
 @ApiModel(value = "返回数据对象", description = "前后端交互的数据格式" )
 public class JsonData implements Serializable {
 
-	@ApiModelProperty(value = "状态码", notes = "http响应请求状态码")
-	private Integer code;
+	@ApiModelProperty(value = "状态码", dataType = "int", notes = "http响应请求状态码")
+	private int code;
 
-	@ApiModelProperty(value = "返回的数据", notes = "对返回数据的封装对象")
+	@ApiModelProperty(value = "返回的数据", dataType = "Object", notes = "对返回数据的封装对象")
 	private Object data;
 
-	@ApiModelProperty(value = "状态描述", notes = "对当前返回结果对具体描述")
+	@ApiModelProperty(value = "状态描述", dataType = "String", notes = "对当前返回结果对具体描述")
 	private String msg;
 
     /**
