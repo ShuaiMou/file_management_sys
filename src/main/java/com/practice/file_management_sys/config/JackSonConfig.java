@@ -21,7 +21,7 @@ public class JackSonConfig {
     /***
      * @Author Saul
      * @Description  TODO: Spring Boot 中默认使用的 json 解析框架是 jackson,这里配置使空值转换为空字符串（""），
-     * @Date 8:48 下午 2/3/20
+     * @Date 8:56 下午 2/3/20
      * @param builder
      * @return {@link {@link com.fasterxml.jackson.databind.ObjectMapper}}
      */
