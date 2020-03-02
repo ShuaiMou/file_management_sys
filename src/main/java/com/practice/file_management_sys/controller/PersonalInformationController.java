@@ -10,7 +10,7 @@ import javax.annotation.Resource;
 
 @RestController
 @RequestMapping("/user")
-@Api(tags = "用户管理")
+@Api(tags = "用户管理", produces = "application/json")
 public class PersonalInformationController {
 
     @Resource
@@ -23,7 +23,7 @@ public class PersonalInformationController {
             @ApiResponse(code = 200, message = "ok", response = User.class),
             @ApiResponse(code = 500, message = "服务器内部错误", response = JsonData.class)
     })
-    public JsonData updateInfo(@RequestBody User user){
+    public JsonData updateInfo(@RequestBody(required = true) User user){
         return userService.updatePersonalInfo(user);
     }
 

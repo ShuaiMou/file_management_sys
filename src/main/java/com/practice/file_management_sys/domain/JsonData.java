@@ -30,6 +30,11 @@ public class JsonData<T> implements Serializable {
 	@ApiModelProperty(value = "状态描述", dataType = "String", notes = "对当前返回结果对具体描述")
 	private String msg;
 
+	public JsonData(int code, String msg){
+		this.code = code;
+		this.msg = msg;
+	}
+
     /**
      *  成功
      *

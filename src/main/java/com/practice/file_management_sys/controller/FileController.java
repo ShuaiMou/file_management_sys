@@ -43,7 +43,7 @@ public class FileController {
             @ApiResponse(code = 201, message = "new resource is created", response = FMSFile.class),
             @ApiResponse(code = 500, message = "服务器内部异常", response = JsonData.class)
     })
-    public JsonData uploadFile(@RequestParam("file") MultipartFile file, HttpServletRequest request){
+    public JsonData uploadFile(@RequestParam("file") MultipartFile file, HttpServletRequest request) throws IOException {
         String uploaderName = request.getParameter("uploaderName");
         String uploaderEmail = request.getParameter("uploaderEmail");
         String domain = request.getParameter("domain");
@@ -57,17 +57,8 @@ public class FileController {
         finalName.append("_").append(fileName).append(fileName).append(UUIDUtils.getUUID()).append(suffix);
 
         File dest = new File(fileStorePath + finalName.toString());
-
-        try {
-            file.transferTo(dest);
-        } catch (IOException e) {
-           return JsonData.buildError(StateType.INTERNAL_SERVER_ERROR.getCode(), "存储异常");
-        }
-
+        file.transferTo(dest);
         FMSFile fmsFile = fileService.store(finalName.toString(), uploaderName, uploaderEmail, size);
-        if (fmsFile == null){
-            return JsonData.buildError(StateType.INTERNAL_SERVER_ERROR.getCode(), "存储异常");
-        }
         return JsonData.buildSuccess(StateType.CREATED.getCode(), fmsFile,StateType.CREATED.value());
 
     }

@@ -8,6 +8,7 @@ import com.practice.file_management_sys.mapper.UserMapper;
 import com.practice.file_management_sys.service.UserService;
 import com.practice.file_management_sys.utils.EncriptionUtils;
 import com.practice.file_management_sys.utils.RedisUtils;
+import exception.BusinessException;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -30,19 +31,19 @@ public class UserServiceImpl implements UserService {
      * @return JsonData 登录成功还是失败
      */
     @Override
-    public JsonData checkLogin(String email, String password) {
+    public JsonData checkLogin(String email, String password){
         User user = userMapper.findByEmail(email);
 
-        // check email
-        if (null == user){
-            return JsonData.buildError(StateType.UNAUTHORIZED.getCode(), "the email does not exits");
-        }
+    // check email
+    if (null == user) throw new BusinessException(StateType.UNAUTHORIZED.getCode(), "the email does not exits");
 
-        //check password
-        String psw = EncriptionUtils.EncoderByMD5(password);
-        if (!user.getPassword().equals(psw)){
-            return JsonData.buildError(StateType.UNAUTHORIZED.getCode() , "wrong password ");
-        }
+    //check password
+    String psw = EncriptionUtils.EncoderByMD5(password);
+    if (!user.getPassword().equals(psw)){
+        throw new BusinessException(StateType.UNAUTHORIZED.getCode() , "wrong password ");
+    }
+
+
 
         return JsonData.buildSuccess(user);
     }
@@ -55,24 +56,22 @@ public class UserServiceImpl implements UserService {
      * @return JsonData注册成功或者失败
      */
     @Override
-    public JsonData register(User user, String verificationCode){
+    public JsonData register(User user, String verificationCode) throws BusinessException {
         User tempUser = userMapper.findByEmail(user.getEmail());
 
         //check user
         if ( null != tempUser) {//exits
-            return JsonData.buildError(StateType.UNAUTHORIZED.getCode(), "the email has registered");
+            throw new BusinessException(StateType.UNAUTHORIZED.getCode(),"the email has registered");
         }else if(verificationCode == null || !verificationCode.equalsIgnoreCase((String) redisUtils.get(user.getEmail()))){
-            return JsonData.buildError(StateType.UNAUTHORIZED.getCode(), "验证码不正确，请重试");
+            throw new BusinessException(StateType.UNAUTHORIZED.getCode(),"验证码不正确，请重试");
         } else {
             //add user
             user.setPassword(EncriptionUtils.EncoderByMD5(user.getPassword()));
             user.setCreateTime(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));
             user.setUpdateTime(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));
             //store in database
-            if ( 1 == userMapper.addUser(user)) {
-                return JsonData.buildSuccess(user);
-            }
-            return JsonData.buildError(StateType.INTERNAL_SERVER_ERROR.getCode(), StateType.INTERNAL_SERVER_ERROR.value());
+            return JsonData.buildSuccess(user);
+
         }
     }
 
@@ -84,14 +83,7 @@ public class UserServiceImpl implements UserService {
      */
     @Override
     public JsonData updatePersonalInfo(User user) {
-        int n = userMapper.updateInformation(user);
-        if (n == 1){
-            return JsonData.buildSuccess(userMapper.findByEmail(user.getEmail()));
-        }else {
-            return JsonData.buildError(StateType.INTERNAL_SERVER_ERROR.getCode(),StateType.INTERNAL_SERVER_ERROR.value());
-
-        }
-
-
+        userMapper.updateInformation(user);
+        return JsonData.buildSuccess(userMapper.findByEmail(user.getEmail()));
     }
 }
