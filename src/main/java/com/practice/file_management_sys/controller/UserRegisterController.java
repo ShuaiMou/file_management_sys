@@ -5,7 +5,7 @@ import com.practice.file_management_sys.domain.User;
 import com.practice.file_management_sys.enumClass.StateType;
 import com.practice.file_management_sys.service.MailService;
 import com.practice.file_management_sys.service.UserService;
-import exception.BusinessException;
+import com.practice.file_management_sys.exception.BusinessException;
 import io.swagger.annotations.*;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.PropertySource;

@@ -48,7 +48,7 @@
             
         </rollingPolicy>
     </appender>
-   <root level="INFO">  
+   <root level="info">
         <appender-ref ref="consoleApp"/>
         <appender-ref ref="fileInfoApp"/>
         <appender-ref ref="fileErrorApp"/>

@@ -4,7 +4,6 @@ import com.practice.file_management_sys.domain.JsonData;
 import com.practice.file_management_sys.domain.User;
 import com.practice.file_management_sys.enumClass.StateType;
 import com.practice.file_management_sys.service.UserService;
-import exception.BusinessException;
 import io.swagger.annotations.*;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -36,10 +35,11 @@ public class UserLoginController {
         String email = request.getParameter("email");
         String password = request.getParameter("password");
         JsonData result = userService.checkLogin(email, password);
-        if (result.getCode() == 200){
-            request.getSession().setAttribute("account", email);
-        }
+
+        request.getSession().setAttribute("account", email);
         return result;
+
+
     }
     
 

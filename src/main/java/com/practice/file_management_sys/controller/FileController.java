@@ -73,7 +73,7 @@ public class FileController {
     @ApiOperation(value = "查询上传历史",notes = "用户查询自己的上传文件")
     @ApiImplicitParam(name = "uploaderEmail", value = "用户唯一标识符-邮箱", required = true, paramType = "query", dataType = "字符串")
     @ApiResponse(code = 200, message = "ok", response = List.class)
-    public JsonData uploadHistory(String uploaderEmail){
+    public JsonData uploadHistory(@RequestParam(required = true) String uploaderEmail){
         List<FMSFile> fmsFiles = fileService.queryUploadHistory(uploaderEmail);
         return JsonData.buildSuccess(fmsFiles);
     }
@@ -88,7 +88,7 @@ public class FileController {
     @ApiOperation(value = "查询下载历史",notes = "用户查询自己的下载过的文件")
     @ApiImplicitParam(name = "downloaderEmail", value = "用户唯一标识符-邮箱", required = true, paramType = "query", dataType = "字符串")
     @ApiResponse(code = 200, message = "ok", response = List.class)
-    public JsonData downloadHistory(String downloaderEmail){
+    public JsonData downloadHistory(@RequestParam(required = true) String downloaderEmail){
         List<FMSFile> fmsFiles = fileService.queryDownloadHistory(downloaderEmail);
         return JsonData.buildSuccess(fmsFiles);
     }

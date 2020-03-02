@@ -8,7 +8,7 @@ import com.practice.file_management_sys.mapper.UserMapper;
 import com.practice.file_management_sys.service.UserService;
 import com.practice.file_management_sys.utils.EncriptionUtils;
 import com.practice.file_management_sys.utils.RedisUtils;
-import exception.BusinessException;
+import com.practice.file_management_sys.exception.BusinessException;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -35,17 +35,16 @@ public class UserServiceImpl implements UserService {
         User user = userMapper.findByEmail(email);
 
     // check email
-    if (null == user) throw new BusinessException(StateType.UNAUTHORIZED.getCode(), "the email does not exits");
+    if (null == user){
+        throw new BusinessException(StateType.UNAUTHORIZED.getCode(), "the email does not exits");
+    }
 
     //check password
     String psw = EncriptionUtils.EncoderByMD5(password);
     if (!user.getPassword().equals(psw)){
         throw new BusinessException(StateType.UNAUTHORIZED.getCode() , "wrong password ");
     }
-
-
-
-        return JsonData.buildSuccess(user);
+    return JsonData.buildSuccess(user);
     }
 
     /**
@@ -71,7 +70,6 @@ public class UserServiceImpl implements UserService {
             user.setUpdateTime(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));
             //store in database
             return JsonData.buildSuccess(user);
-
         }
     }
 

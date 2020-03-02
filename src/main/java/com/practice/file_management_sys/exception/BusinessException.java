@@ -1,4 +1,7 @@
-package exception;
+package com.practice.file_management_sys.exception;
+
+import lombok.Getter;
+import lombok.Setter;
 
 /**
  * @Auther: Saul
@@ -6,11 +9,11 @@ package exception;
  * @Description:业务异常类
  */
 
+@Setter
+@Getter
 public class BusinessException extends RuntimeException{
     private int code;
     private String msg;
-
-    public BusinessException(){}
 
     public BusinessException(int code, String msg){
         super(msg);
@@ -18,19 +21,5 @@ public class BusinessException extends RuntimeException{
         this.msg = msg;
     }
 
-    public int getCode() {
-        return code;
-    }
-
-    public void setCode(int code) {
-        this.code = code;
-    }
-
-    public String getMsg() {
-        return msg;
-    }
-
-    public void setMsg(String msg) {
-        this.msg = msg;
-    }
+    public  BusinessException(){}
 }
