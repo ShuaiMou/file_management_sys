@@ -4,12 +4,13 @@ package com.practice.file_management_sys.service.serviceImpl;
 import com.practice.file_management_sys.domain.JsonData;
 import com.practice.file_management_sys.domain.User;
 import com.practice.file_management_sys.enumClass.StateType;
+import com.practice.file_management_sys.exception.BusinessException;
 import com.practice.file_management_sys.mapper.UserMapper;
 import com.practice.file_management_sys.service.UserService;
 import com.practice.file_management_sys.utils.EncriptionUtils;
 import com.practice.file_management_sys.utils.RedisUtils;
-import com.practice.file_management_sys.exception.BusinessException;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
 import java.text.SimpleDateFormat;
@@ -55,6 +56,7 @@ public class UserServiceImpl implements UserService {
      * @return JsonData注册成功或者失败
      */
     @Override
+    @Transactional(rollbackFor = Exception.class)
     public JsonData register(User user, String verificationCode) throws BusinessException {
         User tempUser = userMapper.findByEmail(user.getEmail());
 
@@ -80,6 +82,7 @@ public class UserServiceImpl implements UserService {
      * @return JsonData
      */
     @Override
+    @Transactional(rollbackFor = Exception.class)
     public JsonData updatePersonalInfo(User user) {
         userMapper.updateInformation(user);
         return JsonData.buildSuccess(userMapper.findByEmail(user.getEmail()));

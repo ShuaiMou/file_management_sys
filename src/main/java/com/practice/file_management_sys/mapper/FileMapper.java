@@ -5,7 +5,6 @@ import org.apache.ibatis.annotations.*;
 
 import java.util.List;
 
-@Mapper
 public interface FileMapper {
     @Insert("insert into fms_file (file_name, User_email, User_username, create_time, size) values " +
             "(#{fileName}, #{uploaderEmail}, #{uploaderName}, #{createTime}, #{size})")
