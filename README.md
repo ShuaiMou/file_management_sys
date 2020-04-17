@@ -90,30 +90,30 @@ file_management_sys 是一个文件共享系统，包括前端文件展示系统
 ### 搭建具体环境(docker搭建，基于centos 7)
   首先安装docker，启动docker systemctl start docker.
   注意： 当各个容器启动后，在服务器端的安全组一定要配置相应端口，不然外部访问不到。
- - 1.安装 MySQL
-    1.1 拉取最新镜像 docker pull centos/mysql-57-centos7
-    1.2 运行一个容器 docker run -id --name=mysql-57-centos7 -p 3306:3306 -e MYSQL_ROOT_PASSWORD=717294 centos/mysql-57-centos7
+ - 1.安装 MySQL  
+    1.1 拉取最新镜像 docker pull centos/mysql-57-centos7  
+    1.2 运行一个容器 docker run -id --name=mysql-57-centos7 -p 3306:3306 -e MYSQL_ROOT_PASSWORD=717294 centos/mysql-57-centos7  
     
- - 2.安装 Redis 4.0.10
-    2.1  拉取redis镜像 docker pull redis
-    2.2  运行redis容器 docker run -id --name=redis -p 6379:6379 redis
+ - 2.安装 Redis 4.0.10  
+    2.1  拉取redis镜像 docker pull redis  
+    2.2  运行redis容器 docker run -id --name=redis -p 6379:6379 redis  
  
- - 3.安装 RocketMQ 4.6.0  
- - 4.安装 nginx1.16.1
-    4.1 安装相关环境 
-          yum install gcc-c++
-          yum install -y pcre pcre-devel
-          yum install -y zlib zlib-devel
-          yum install -y openssl openssl-devel
-    4.2 获取 安装包 wget -c https://nginx.org/download/nginx-1.16.1.tar.gz
-    4.3 解压安装 
-          tar -zxvf nginx-1.16.1.tar.gz
-          cd nginx-1.16.1
-          ./configure
-          make install
-     4.4 运行
-          cd /usr/local/nginx/sbin/
-          ./nginx
+ - 3.安装 RocketMQ 4.6.0    
+ - 4.安装 nginx1.16.1  
+    4.1 安装相关环境   
+          yum install gcc-c++  
+          yum install -y pcre pcre-devel  
+          yum install -y zlib zlib-devel  
+          yum install -y openssl openssl-devel  
+    4.2 获取 安装包 wget -c https://nginx.org/download/nginx-1.16.1.tar.gz  
+    4.3 解压安装   
+          tar -zxvf nginx-1.16.1.tar.gz  
+          cd nginx-1.16.1  
+          ./configure  
+          make install  
+     4.4 运行  
+          cd /usr/local/nginx/sbin/  
+          ./nginx  
 
 ## 相关学习文档
 |技术                         |  说明                       |网址                                                                     |    
