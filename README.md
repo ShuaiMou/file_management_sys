@@ -101,19 +101,19 @@ file_management_sys 是一个文件共享系统，包括前端文件展示系统
  - 3.安装 RocketMQ 4.6.0    
  - 4.安装 nginx1.16.1  
     4.1 安装相关环境   
-          yum install gcc-c++  
-          yum install -y pcre pcre-devel  
-          yum install -y zlib zlib-devel  
-          yum install -y openssl openssl-devel  
+          &nbsp;&nbsp; yum install gcc-c++  
+          &nbsp;&nbsp; yum install -y pcre pcre-devel  
+          &nbsp;&nbsp; yum install -y zlib zlib-devel  
+          &nbsp;&nbsp; yum install -y openssl openssl-devel  
     4.2 获取 安装包 wget -c https://nginx.org/download/nginx-1.16.1.tar.gz  
     4.3 解压安装   
           &nbsp;&nbsp; tar -zxvf nginx-1.16.1.tar.gz  
-          &nbsp; cd nginx-1.16.1  
-          ./configure  
-          make install  
+          &nbsp;&nbsp; cd nginx-1.16.1  
+          &nbsp;&nbsp; ./configure  
+          &nbsp;&nbsp; make install  
      4.4 运行  
-          cd /usr/local/nginx/sbin/  
-          ./nginx  
+          &nbsp;&nbsp; cd /usr/local/nginx/sbin/  
+          &nbsp;&nbsp; ./nginx  
 
 ## 相关学习文档
 |技术                         |  说明                       |网址                                                                     |    
