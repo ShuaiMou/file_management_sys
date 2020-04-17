@@ -107,7 +107,7 @@ file_management_sys 是一个文件共享系统，包括前端文件展示系统
           yum install -y openssl openssl-devel  
     4.2 获取 安装包 wget -c https://nginx.org/download/nginx-1.16.1.tar.gz  
     4.3 解压安装   
-          tar -zxvf nginx-1.16.1.tar.gz  
+          &nbsp&nbsp tar -zxvf nginx-1.16.1.tar.gz  
           cd nginx-1.16.1  
           ./configure  
           make install  
