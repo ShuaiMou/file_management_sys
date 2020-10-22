@@ -1,5 +1,6 @@
-package com.practice.file_management_sys.intercepter;
+package com.practice.file_management_sys.config;
 
+import com.practice.file_management_sys.intercepter.SessionIntercepter;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
@@ -10,7 +11,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
  * @Description: 添加一个拦截器
  */
 @Configuration
-public class CustomWebMvcConfigurer implements WebMvcConfigurer{
+public class CustomWebMvcConfig implements WebMvcConfigurer{
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
         registry.addInterceptor(new SessionIntercepter()).addPathPatterns("/user/a/b");
